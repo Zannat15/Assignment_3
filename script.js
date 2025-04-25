@@ -1,80 +1,77 @@
+var apiKey = "511beda0ae7adc734f73b869ba8b10b4"; // Your actual OpenWeatherMap API key
+
 function searchCountry() {
-    var countryName = document.getElementById("searchInput").value.trim();
-  
-    if (countryName === "") {
-      alert("Please enter a country name.");
-      return;
+    var query = document.getElementById("searchInput").value;
+    if (!query) {
+        alert("Please enter a country name.");
+        return;
     }
-  
-    var url = `https://restcountries.com/v3.1/name/${countryName}`;
-  
+
+    var url = "https://restcountries.com/v3.1/name/" + query;
     fetch(url)
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (data) {
-        showCountryData(data);
-      })
-      .catch(function (error) {
-        console.error("Error fetching country data:", error);
-        alert("Country not found. Try another name.");
-      });
-  }
-  
-  function showCountryData(data) {
-    var results = document.getElementById("results");
-    results.innerHTML = "";
-  
-    for (var i = 0; i < data.length; i++) {
-      var country = data[i];
-      var name = country.name.common;
-      var capital = country.capital ? country.capital[0] : "N/A";
-      var population = country.population.toLocaleString();
-      var flag = country.flags.svg;
-      var lat = country.latlng[0];
-      var lon = country.latlng[1];
-  
-      var card = document.createElement("div");
-      card.classList.add("card");
-  
-      card.innerHTML = `
-        <h2>${name}</h2>
-        <img src="${flag}" alt="Flag of ${name}" class="flag">
-        <p><strong>Capital:</strong> ${capital}</p>
-        <p><strong>Population:</strong> ${population}</p>
-        <button class="more-btn" onclick="getWeather(${lat}, ${lon}, '${name}', this)">More Details</button>
-      `;
-  
-      results.appendChild(card);
-    }
-  }
-  
-  function getWeather(lat, lon, countryName, button) {
-    var apiKey = "YOUR_OPENWEATHERMAP_API_KEY"; // Replace with your actual API key
-    var url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  
-    fetch(url)
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (weatherData) {
-        var temp = weatherData.main.temp;
-        var desc = weatherData.weather[0].description;
-        var icon = weatherData.weather[0].icon;
-  
-        var card = button.parentElement;
-        var weatherInfo = document.createElement("div");
-        weatherInfo.innerHTML = `
-          <p><strong>Weather:</strong> ${desc}, ${temp}&deg;C</p>
-          <img src="https://openweathermap.org/img/wn/${icon}@2x.png" class="weather-icon" alt="Weather icon">
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            displayResults(data);
+        })
+        .catch(function(error) {
+            alert("Country not found.");
+            console.log(error);
+        });
+}
+
+function displayResults(countries) {
+    var container = document.getElementById("results");
+    container.innerHTML = "";
+
+    for (var i = 0; i < countries.length; i++) {
+        var country = countries[i];
+        var capital = country.capital ? country.capital[0] : "N/A";
+
+        var card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <h2>${country.name.common}</h2>
+            <p>Region: ${country.region}</p>
+            <p>Capital: ${capital}</p>
+            <button onclick="showDetails(this, '${capital}', '${country.name.common}', '${country.flags.png}', '${country.population}', '${country.region}')">More Details</button>
+            <div class="details" style="display: none;"></div>
         `;
-  
-        button.style.display = "none"; // Hide button after showing
-        card.appendChild(weatherInfo);
-      })
-      .catch(function (error) {
-        console.error("Error fetching weather data:", error);
-        alert("Weather info could not be loaded.");
-      });
-  }
-  
+
+        container.appendChild(card);
+    }
+}
+
+function showDetails(button, capital, name, flagUrl, population, region) {
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + capital + "&appid=" + apiKey + "&units=metric";
+
+    fetch(weatherUrl)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(weatherData) {
+            if (weatherData.cod !== 200) {
+                alert("Weather data not found for capital: " + capital);
+                return;
+            }
+
+            var detailsDiv = button.nextElementSibling;
+            detailsDiv.style.display = "block";
+
+            detailsDiv.innerHTML = `
+                <img src="${flagUrl}" alt="Flag of ${name}" style="width: 100px;">
+                <p><strong>Population:</strong> ${population}</p>
+                <p><strong>Region:</strong> ${region}</p>
+                <p><strong>Temperature:</strong> ${weatherData.main.temp} °C</p>
+                <p><strong>Weather:</strong> ${weatherData.weather[0].description}</p>
+            `;
+
+            button.style.display = "none"; // Hide button after showing details
+        })
+        .catch(function(error) {
+            alert("Weather data not found.");
+            console.log(error);
+        });
+}

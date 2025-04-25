@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>World Explorer</title>
-  <link rel="stylesheet" href="./styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Explorer</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header class="navbar">
-    <img src="./logo.jpg" class="logo" alt="Logo">
-    <h1>World Explorer</h1>
-  </header>
+    <header class="navbar">
+        <img class="logo" src="./logo.jpg" alt="Logo">
+        <h1>Country & Weather Explorer</h1>
+    </header>
 
-  <section class="search-section">
-    <input type="text" id="searchInput" placeholder="Search for a country...">
-    <button onclick="searchCountry()">Search</button>
-  </section>
+    <main>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for a country...">
+            <button onclick="searchCountry()">Search</button>
+        </div>
 
-  <section class="results" id="results"></section>
+        <div id="results" class="card-container"></div>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 World Explorer | Made with ❤️</p>
-  </footer>
+    <footer class="footer">
+        <p>© 2025 Country Explorer. All rights reserved.</p>
+    </footer>
 
-  <script src="./script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
