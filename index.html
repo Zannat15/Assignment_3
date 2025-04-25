@@ -1,24 +1,26 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Country Weather Explorer</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Explorer</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <nav class="navbar">
-    <h1>🌎 Country Weather Explorer</h1>
-  </nav>
+  <header class="navbar">
+    <img src="./logo.jpg" class="logo" alt="Logo">
+    <h1>World Explorer</h1>
+  </header>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Enter country name..." />
+  <section class="search-section">
+    <input type="text" id="searchInput" placeholder="Search for a country...">
     <button onclick="searchCountry()">Search</button>
-  </div>
+  </section>
 
-  <div id="countryContainer" class="country-grid"></div>
+  <section class="results" id="results"></section>
 
   <footer>
-    <p>&copy; 2025 Country Weather App | Powered by REST Countries & OpenWeather</p>
+    <p>&copy; 2025 World Explorer | Made with ❤️</p>
   </footer>
 
   <script src="./script.js"></script>
