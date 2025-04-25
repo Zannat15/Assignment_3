@@ -1,0 +1,122 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1.2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Search Section */
+  .search-section {
+    text-align: center;
+    margin: 2rem auto;
+  }
+  
+  .search-section input[type="text"] {
+    padding: 0.7rem;
+    width: 300px;
+    max-width: 80%;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+  }
+  
+  .search-section button {
+    padding: 0.7rem 1.2rem;
+    margin-left: 10px;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-section button:hover {
+    background-color: #4682b4;
+  }
+  
+  /* Country Cards Grid */
+  .country-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+  }
+  
+  /* Card Styling */
+  .country-card {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 1.5rem;
+    border-radius: 12px;
+    width: 280px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+  }
+  
+  .country-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .country-card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    color: #f0f8ff;
+  }
+  
+  .country-card p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .country-card img {
+    width: 60px;
+    margin-top: 0.5rem;
+  }
+  
+  /* Details Section */
+  .details {
+    display: none;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .details img {
+    width: 100px;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  
