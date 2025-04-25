@@ -1,14 +1,16 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url('./bg4.webp') no-repeat center center fixed;
-  background-size: cover;
+  background: url('./bg7.jpg') no-repeat center center fixed;
+  background-size: 101%; 
+  background-repeat: no-repeat;
+  background-position: center;
   color: #fff;
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.75);
-  padding: 15px 0;
+  background-color: rgba(89, 7, 7, 0.947);
+  padding: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +19,7 @@ body {
 .navbar-center {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .logo {
@@ -40,7 +42,7 @@ body {
   padding: 10px;
   width: 250px;
   border-radius: 25px;
-  border: 1px solid #aaa;
+  border: 1px solid #4e2020;
   font-size: 16px;
   outline: none;
 }
@@ -50,7 +52,7 @@ button {
   margin-left: 10px;
   border: none;
   border-radius: 25px;
-  background-color: #007bff;
+  background-color: #b6bcc3;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -58,48 +60,50 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #98a1ac;
 }
 
 #results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  padding: 20px 40px 100px;
+  padding: 20px 40px;
+  justify-items: center; /
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(198, 71, 71, 0.171);
   border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(73, 6, 11, 0.59);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 20px;
-  transition: transform 0.3s;
-  color: #fff;
+  text-align: center; 
+  color: #451414;
+  max-width: 400px;
+  width: 100%;
 }
-
 .card:hover {
   transform: translateY(-5px);
 }
 
 .details {
   margin-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(40, 29, 29, 0.3);
   padding-top: 10px;
   display: none;
 }
 
 .details img {
   width: 80px;
-  border: 2px solid #fff;
+  border: 2px solid #482e2e;
   border-radius: 8px;
   margin-bottom: 10px;
 }
 
 .footer {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(89, 7, 7, 0.947);
   color: white;
   text-align: center;
   padding: 15px;
