@@ -1,23 +1,23 @@
-/* GENERAL STYLES */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: url('./bg4.webp') no-repeat center center fixed;
   background-size: cover;
-  color: #333;
+  color: #fff;
 }
 
-/* NAVBAR */
 .navbar {
   background-color: rgba(0, 0, 0, 0.75);
-  padding: 15px 30px;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-center {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  gap: 10px;
 }
 
 .logo {
@@ -26,22 +26,11 @@ body {
 }
 
 .navbar-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
-}
-
-/* FOOTER */
-.footer {
-  background-color: rgba(0, 0, 0, 0.75);
   color: white;
-  text-align: center;
-  padding: 15px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
 
-/* SEARCH */
 #searchSection {
   text-align: center;
   margin: 40px 0 20px;
@@ -54,11 +43,6 @@ body {
   border: 1px solid #aaa;
   font-size: 16px;
   outline: none;
-  transition: 0.3s;
-}
-
-#searchInput:focus {
-  border-color: #007bff;
 }
 
 button {
@@ -70,14 +54,13 @@ button {
   color: white;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-/* RESULTS GRID */
 #results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -85,48 +68,46 @@ button:hover {
   padding: 20px 40px 100px;
 }
 
-/* CARD */
 .card {
-  background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 20px;
   transition: transform 0.3s;
+  color: #fff;
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-.card h2 {
-  margin-top: 0;
-}
-
-.card p {
-  margin: 5px 0;
-}
-
-.card img {
-  margin-top: 10px;
-}
-
-/* DETAILS SECTION */
 .details {
   margin-top: 15px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 10px;
-  font-size: 15px;
+  display: none;
 }
 
 .details img {
   width: 80px;
-  border: 1px solid #ccc;
+  border: 2px solid #fff;
   border-radius: 8px;
-  display: block;
   margin-bottom: 10px;
 }
 
-/* RESPONSIVE */
+.footer {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 @media (max-width: 600px) {
   .navbar-title {
       font-size: 18px;
@@ -134,5 +115,10 @@ button:hover {
 
   #searchInput {
       width: 180px;
+  }
+
+  button {
+      margin-top: 10px;
+      width: 100px;
   }
 }
