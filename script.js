@@ -1,4 +1,4 @@
-var apiKey = "62fd53ce7b97727e6c8e05120a7a32f7"; // OpenWeatherMap API Key
+var apiKey = "62fd53ce7b97727e6c8e05120a7a32f7"; 
 
 function searchCountry() {
     var query = document.getElementById("searchInput").value;
@@ -8,7 +8,7 @@ function searchCountry() {
         .then(res => res.json())
         .then(data => {
             displayResults(data);
-            document.getElementById("searchInput").value = ""; // Clear the input
+            document.getElementById("searchInput").value = ""; 
         })
         .catch(err => alert("Country not found."));
 }
